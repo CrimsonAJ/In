@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Analytics Test Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<script>
+  window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
+  window.op('init', {
+    clientId: '4526b5ec-159f-418f-925f-0827b8755328',
+    trackScreenViews: true,
+    trackOutgoingLinks: true,
+    trackAttributes: true,
+  });
+</script>
+<script src="https://opdashboard-bs0cg0wggwk8sokos4404wgo.hypestudio.me" defer async></script>
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    button {
+      padding: 10px 16px;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    nav a {
+      margin-right: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/page-a.html">Page A</a>
+    <a href="/page-b.html">Page B</a>
+  </nav>
+
+  <h1>Analytics Test Website</h1>
+  <p>This site exists only to test analytics tools.</p>
+
+  <button onclick="trackEvent('signup_click')">Signup Button</button>
+  <button onclick="trackEvent('download_click')">Download Button</button>
+
+  <script>
+    function trackEvent(name) {
+      console.log("Event:", name);
+
+      // Plausible
+      if (window.plausible) plausible(name);
+
+      // Umami
+      if (window.umami) umami.track(name);
+
+      // Ackee example
+      // ackeeTracker.action(name);
+
+      alert("Event fired: " + name);
+    }
+  </script>
+</body>
+</html>
